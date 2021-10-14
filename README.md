@@ -1,5 +1,11 @@
 # TERMINATE ME!
-###This is a JavaScript game in which the player has to destroy all boxes falling.
+### This is a JavaScript game in which the player has to destroy all boxes falling.
+
+## Demo
+![Website image](/Assets/README/s1.png)
+![Website image](/Assets/README/s2.png)
+![Website image](/Assets/README/s3.png)
+
 ## Setup/Installation Requirements
 * Fork/Clone the repository
 ```
@@ -9,6 +15,8 @@
 
 * Open your project on your favorite editor
 * Open project on Live Server
+* Use Arrow left and right to move shooter
+* Use alt to shoot
 ## Known Bugs
 No known bugs
 ## Technologies Used
