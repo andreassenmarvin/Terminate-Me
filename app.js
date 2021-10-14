@@ -126,7 +126,7 @@ function shoot(e) {
 
   }
   switch(e.key) {
-    case 'ArrowUp':
+    case 'Alt':
       laserId = setInterval(moveLaser, 100)
   }
 }
