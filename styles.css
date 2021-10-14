@@ -3,11 +3,11 @@ body {
 }
 
 .grid {
-	width: 300px;
-	height: 300px;
-	border: solid white 1px;
-	display: flex;
-	flex-wrap: wrap;
+    width: 300px;
+    height: 300px;
+    border: solid white 1px;
+    display: flex;
+    flex-wrap: wrap;
     margin: auto;
 }
 
