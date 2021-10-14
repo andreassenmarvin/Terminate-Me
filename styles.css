@@ -9,9 +9,9 @@ body {
 }
 
 .grid {
-    width: 300px;
+    width: 310px;
     max-width: 100vw;
-    height: 300px;
+    height: 350px;
     border: solid white 1px;
     display: flex;
     flex-wrap: wrap;
@@ -30,6 +30,7 @@ body {
 
 .shooter {
     background-color: purple;
+    margin: auto;
 }
 
 .laser {
