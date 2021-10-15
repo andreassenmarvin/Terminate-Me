@@ -16,18 +16,18 @@ for (let i = 0; i < 225; i++) {
 const squares = Array.from(document.querySelectorAll('.grid div'))
 
 const alienInvaders = [
-  0,1,2,3,4,5,6,7,8,9,
-  15,16,17,18,19,20,21,22,23,24,
-  30,31,32,33,34,35,36,37,38,39,
-  45,46,47,48,49,50,51,52,53,54,
-  60,61,62,63,64,65,66,67,68,69,
-  75,76,77,78,79,80,81,82,83,84,
-  90,91,92,93,94,95,96,97,98,99,
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+  15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+  30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+  45, 46, 47, 48, 49, 50, 51, 52, 53, 54,
+  60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+  75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+  90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
 ]
 
 function draw() {
   for (let i = 0; i < alienInvaders.length; i++) {
-    if(!aliensRemoved.includes(i)) {
+    if (!aliensRemoved.includes(i)) {
       squares[alienInvaders[i]].classList.add('invader')
     }
   }
@@ -46,12 +46,12 @@ squares[currentShooterIndex].classList.add('shooter')
 
 function moveShooter(e) {
   squares[currentShooterIndex].classList.remove('shooter')
-  switch(e.key) {
+  switch (e.key) {
     case 'ArrowLeft':
-      if (currentShooterIndex % width !== 0) currentShooterIndex -=1
+      if (currentShooterIndex % width !== 0) currentShooterIndex -= 1
       break
-    case 'ArrowRight' :
-      if (currentShooterIndex % width < width -1) currentShooterIndex +=1
+    case 'ArrowRight':
+      if (currentShooterIndex % width < width - 1) currentShooterIndex += 1
       break
   }
   squares[currentShooterIndex].classList.add('shooter')
@@ -60,20 +60,20 @@ document.addEventListener('keydown', moveShooter)
 
 function moveInvaders() {
   const leftEdge = alienInvaders[0] % width === 0
-  const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width -1
+  const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width - 1
   remove()
 
   if (rightEdge && goingRight) {
     for (let i = 0; i < alienInvaders.length; i++) {
-      alienInvaders[i] += width +1
+      alienInvaders[i] += width + 1
       direction = -1
       goingRight = false
     }
   }
 
-  if(leftEdge && !goingRight) {
+  if (leftEdge && !goingRight) {
     for (let i = 0; i < alienInvaders.length; i++) {
-      alienInvaders[i] += width -1
+      alienInvaders[i] += width - 1
       direction = 1
       goingRight = true
     }
@@ -87,23 +87,13 @@ function moveInvaders() {
 
   if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
     resultsDisplay.innerHTML = 'GAME OVER';
-    confirm("You lose! Try again");
     clearInterval(invadersId)
-
-    if(confirm) {
-      window.location.reload(true);
-    }
   }
 
   for (let i = 0; i < alienInvaders.length; i++) {
-    if(alienInvaders[i] > (squares.length)) {
+    if (alienInvaders[i] > (squares.length)) {
       resultsDisplay.innerHTML = 'GAME OVER';
-      confirm("Try again");
       clearInterval(invadersId)
-
-      if(confirm) {
-        window.location.reload(true);
-      }
     }
   }
   if (aliensRemoved.length === alienInvaders.length) {
@@ -116,6 +106,7 @@ invadersId = setInterval(moveInvaders, 600)
 function shoot(e) {
   let laserId
   let currentLaserIndex = currentShooterIndex
+
   function moveLaser() {
     squares[currentLaserIndex].classList.remove('laser')
     currentLaserIndex -= width
@@ -126,7 +117,7 @@ function shoot(e) {
       squares[currentLaserIndex].classList.remove('invader')
       squares[currentLaserIndex].classList.add('boom')
 
-      setTimeout(()=> squares[currentLaserIndex].classList.remove('boom'), 300)
+      setTimeout(() => squares[currentLaserIndex].classList.remove('boom'), 300)
       clearInterval(laserId)
 
       const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
@@ -138,7 +129,7 @@ function shoot(e) {
     }
 
   }
-  switch(e.key) {
+  switch (e.key) {
     case 'Alt':
       laserId = setInterval(moveLaser, 100)
   }
